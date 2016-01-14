@@ -106,7 +106,7 @@ inputHelper.extend('datepicker', {
     className: 'form-control', //the className to put into the component
     component: DatePicker, //the component reference, react class or string such as 'input'
     valueProp: 'selected', // the prop name used to assign value to the component, this date picker uses 'selected' instead of 'value'
-    //defaultProps: { },
+    defaultProps: { dateFormat: 'MM/DD/YYYY' }, // the default props that the component needs
     getValueOnChange: (e, props) => e.toString(), // to internally handle the event in onChange, otherwise it will try to retrieve e.target.value
     includedLabel : false, // indicates the component does not include a label props it self, we'll renderer the label for it
     setValue: (value, props) => isNaN(Date.parse(value))? null:moment(value), //the handler to pass the value from instance to the component
@@ -134,7 +134,7 @@ inputHelper.extend('datepicker', {
   - validate(component, targets, results, validatePropertyKey)
     * this is a jsut helper method to help calling the nesting component's setState and wrap the callback as a promise
     * the validation will be triggered by changing the validate prop's linked member in state by setState
-    * Params: 
+    * Params:
       * component: pass 'this' in the caller component to the method
       * targets: an array of the instance to validate, it will be matched with the instance set to the input to decide wheather to perform the validation
       * results: optional, an empty object used to collect the results, if pass null in, the method will make a new object as state[validatePropertyKey].results
@@ -172,6 +172,6 @@ inputHelper.extend('datepicker', {
   make js
 ```
 ## Contribute?
-  ----- Working in Progress ----- 
+  ----- Working in Progress -----
   - Send a pull request to me
   - Or extend an input type with the extend method and publish it!

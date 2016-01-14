@@ -243,7 +243,7 @@ export default class ValidatedInput extends Component {
     value = this.compConfig.setValue ? this.compConfig.setValue(value, this.props) : value;
     let {type, instance, propertyKey, onChange, defaultValue} = this.props;
 
-    let props = {onChange: this.handleChange.bind(this, instance, propertyKey, onChange)};
+    let props = Object.assign({onChange: this.handleChange.bind(this, instance, propertyKey, onChange)}, this.compConfig.defaultProps);
 
     props[this.compConfig.valueProp] = value;
     if (this.config.propsPassThrough) {
