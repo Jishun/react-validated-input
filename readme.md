@@ -107,9 +107,9 @@ inputHelper.extend('datepicker', {
     component: DatePicker, //the component reference, react class or string such as 'input'
     valueProp: 'selected', // the prop name used to assign value to the component, this date picker uses 'selected' instead of 'value'
     //defaultProps: { },
-    getValueOnChange: (e) => e.toString(), // to internally handle the event in onChange, otherwise it will try to retrieve e.target.value
+    getValueOnChange: (e, props) => e.toString(), // to internally handle the event in onChange, otherwise it will try to retrieve e.target.value
     includedLabel : false, // indicates the component does not include a label props it self, we'll renderer the label for it
-    setValue: (value) => isNaN(Date.parse(value))? null:moment(value), //the handler to pass the value from instance to the component
+    setValue: (value, props) => isNaN(Date.parse(value))? null:moment(value), //the handler to pass the value from instance to the component
     propsMap: [{from: 'placeholder', to: 'placeholderText'}] //map a different name for the default properties
 })
 ```
@@ -156,13 +156,13 @@ inputHelper.extend('datepicker', {
   - If it has a className, it will try to find the rules from global config made by registerClass and rgisterClasses. then use it.
   - the property name '_rules' and '_class' can be overridded with the config API method
 
-  ## Extending validator
+## Extending validator
   - Please refer to the document of [validate.js](http://validatejs.org/) for the format of the rules.
   - import the validator instance with "import validator from 'validate.js'" to begin
 
 
-  ## Build
-  ```bash
+## Build
+```bash
   npm install
   make js
-  ```
+```

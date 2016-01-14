@@ -7,10 +7,10 @@
   "homepage": "https://github.com/djsxp/react-validated-input.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/djsxp/react-validated-input.git",
+    "url": "https://github.com/djsxp/react-validated-input.git"
   },
   "scripts": {
-    "build": "make js",
+    "build": "make js"
   },
   "keywords": [
     "validation",

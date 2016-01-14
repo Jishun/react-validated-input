@@ -90,9 +90,8 @@ const typeToComponents = {
     wrapper: 'div',
     wrapperClass: 'radio',
     component: 'input',
-    valueProp: 'checked',
+    valueProp: 'value',
     canuseWrapper: true,
-    getValueOnChange: (e) => e.target.checked,
     defaultProps: { type: 'radio'},
     labelAfter: true
     },
@@ -208,7 +207,7 @@ export default class ValidatedInput extends Component {
   }
 
   handleChange(instance, propertyKey, callback, e) {
-    let value = this.compConfig.getValueOnChange ? this.compConfig.getValueOnChange(e) : e.target.value;
+    let value = this.compConfig.getValueOnChange ? this.compConfig.getValueOnChange(e, this.props) : e.target.value;
      this.setState({value: value});
      if(callback){
        callback(e, value);
@@ -240,7 +239,7 @@ export default class ValidatedInput extends Component {
     }
 
     let value = this.getValue();
-    value = this.compConfig.setValue ? this.compConfig.setValue(value) : value;
+    value = this.compConfig.setValue ? this.compConfig.setValue(value, this.props) : value;
     let {type, instance, propertyKey, onChange, defaultValue} = this.props;
 
     let props = {onChange: this.handleChange.bind(this, instance, propertyKey, onChange)};
