@@ -18,6 +18,7 @@ const reservedKeys = [
   'onChange',
   'hide',
   'defaltValue',
+  'wrapperClassName'
   //keyPlaceholder : 'placeholder',
   //keyType : 'type',
 ]
@@ -84,6 +85,7 @@ const typeToComponents = {
     component: 'input',
     valueProp: 'checked',
     getValueOnChange: (e) => e.target.checked,
+    labelAfter: true,
     defaultProps: { type: 'checkbox'}
     },
   'radio': {
@@ -150,8 +152,7 @@ function validateInstance(instance, key, className, value, rules, config){
   }
   if (rules) {
     rules = {[key]: rules[key]}
-    let toValidate = {[key]: value};
-    let ret = validatejs(toValidate, rules);
+    let ret = validatejs(instance, rules);
     if (ret) {
       let result = {[config.errorIndicatorKey]: true, [config.errorMessageKey] : ret};
       if (config.mutate) {
@@ -272,14 +273,6 @@ export default class ValidatedInput extends Component {
     return this.finalRender(props, stateProps, this.props.label, children)
   }
 
-  unreached(){
-    //case 'datepicker':
-    let DatePicker = 'string';
-      return <div className={classNames({'form-group': true, 'has-error' : this.state.hasError})}>
-        <DatePicker {...props} className="form-control" placeholderText={placeholder} selected={isNaN(Date.parse(value))? null:moment(value)} ></DatePicker>
-      </div>
-  }
-
   getInputType(){
     return this.props.type || 'text';
   }
@@ -290,7 +283,7 @@ export default class ValidatedInput extends Component {
     if (!useWraper) {
       Object.assign(props, stateProps);
     }
-    props.className = (props.className || '') + (this.compConfig.className || '')
+    props.className = (props.className || '') + ' ' + (this.compConfig.className || '')
     if (this.compConfig.propsMap) {
       this.compConfig.propsMap.forEach(p => props[p.to] = props[p.from])
     }
@@ -303,7 +296,7 @@ export default class ValidatedInput extends Component {
       toRender =  <label>{this.compConfig.labelAfter ? '' : label}{children ? <Comp {...props}>{children}</Comp> : <Comp {...props}/>}{this.compConfig.labelAfter ? label : ''}</label>
     }
     if (useWraper) {
-      stateProps.className += (' ' + this.compConfig.wrapperClass)
+      stateProps.className = (stateProps.className || '') +  ' ' + (this.compConfig.wrapperClass || '') + ' ' + (this.props.wrapperClassName || '')
       let Wrapper = this.compConfig.wrapper
       return <Wrapper {...stateProps}>
         {toRender}
