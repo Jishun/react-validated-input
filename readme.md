@@ -129,15 +129,16 @@ inputHelper.extend('datepicker', {
 * label (render a label for it with the text provided)
 
 ##API
-  - registerClasses(classes)
-    * register a set of global validation rules
   - validate(component, targets, results, validatePropertyKey)
     * this is a jsut helper method to help calling the nesting component's setState and wrap the callback as a promise
     * the validation will be triggered by changing the validate prop's linked member in state by setState
-    * component: pass 'this' in the caller component to the method
-    * targets: an array of the instance to validate, it will be matched with the instance set to the input to decide wheather to perform the validation
-    * results: optional, an empty object used to collect the results, if pass null in, the method will make a new object as state[validatePropertyKey].results
-    * validatePropertyKey: overrides the global config to tell the method which property of the state is used as the validation config, this is useful when     inputs are grouped differently
+    * Params: 
+      * component: pass 'this' in the caller component to the method
+      * targets: an array of the instance to validate, it will be matched with the instance set to the input to decide wheather to perform the validation
+      * results: optional, an empty object used to collect the results, if pass null in, the method will make a new object as state[validatePropertyKey].results
+      * validatePropertyKey: overrides the global config to tell the method which property of the state is used as the validation config, this is useful when     inputs are grouped differently
+  - registerClasses(classes)
+    * register a set of global validation rules
   - registerClass(className, rules)
     * set a single set of rule to validate a single class
   - config(newConfig)
@@ -146,7 +147,7 @@ inputHelper.extend('datepicker', {
     * extend the component with adding new types of input.
 
 ## Managing Rules:
-  - It will try find a set of rules in the following order:
+  - It will try to find a set of rules in the following order:
     * If the 'rules' prop is set in the component, it will gain the priority and override the global
     * it will then try instance._rules
   - If there is no rules found, the validation function will try to find a className in the following order:
@@ -158,7 +159,10 @@ inputHelper.extend('datepicker', {
 
 ## Extending validator
   - Please refer to the document of [validate.js](http://validatejs.org/) for the format of the rules.
-  - import the validator instance with "import validator from 'validate.js'" to begin
+  - import the validator instance to begin with
+  js```
+  import validator from 'validate.js'
+  ```
 
 
 ## Build
