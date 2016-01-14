@@ -1,8 +1,8 @@
 # react-validated-input
-### Working in Progress ###
-Instance based validation component for react, NO FORMS REQUIRED!
-Supports bootstrap, can support all kinds of input in one (built in or extended)
-It uses [validate.js](http://validatejs.org/) to do the validation.
+
+- Instance based validation component for react, NO FORMS REQUIRED!
+- Supports bootstrap, can support all kinds of input in one (built in or extended)
+- It uses [validate.js](http://validatejs.org/) to do the validation.
 
 #Why -- Why another input component?
   - No! my why is, why every validation component has to base on forms? Aren't you tied of binding a form submission and calling e.preventDefault()?
@@ -164,9 +164,12 @@ inputHelper.extend('datepicker', {
   import validator from 'validate.js'
 ```
 
-
 ## Build
 ```bash
   npm install
   make js
 ```
+## Contribute?
+  #### Working in Progress ####
+  - Send a pull request to me
+  - Or extend an input type with the extend method and publish it!
