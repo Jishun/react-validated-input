@@ -1,10 +1,10 @@
 /*!
  * react-validated-input.js 0.1.0
  *
- * (c) 2013-2015 Nicklas Ansman, 2013 Wrapp
+ * (c) 2013-2015 Jishun Duan, 2013 Wrapp
  * Validate.js may be freely distributed under the MIT license.
  * For all details and documentation:
- * http:///
+ * https://github.com/djsxp/react-validated-input
  */
 
 "use strict";
@@ -24,6 +24,9 @@ const reservedKeys = [
 
 const configObj = {
   errorCssClass : 'has-error',
+  wraningCssClass : 'has-warning', // the class applied when has error
+  successCssClass : 'has-success', // the class applied when has error
+  feedbackCssClass : 'has-feedback', // the class applied when has error
   useWrapper : true,
   propsPassThrough : true,
   allowOverride : true,
@@ -255,13 +258,13 @@ export default class ValidatedInput extends Component {
     }
     let stateProps = {className : props.className || ''};
     if (this.state.hasError || this.props.hasError) {
-      stateProps.className += ' has-error'
+      stateProps.className += (' ' + this.config.errorCssClass)
     }else if(this.props.hasWarning){
-      stateProps.className += ' has-warning'
+      stateProps.className += (' ' + this.config.warningCssClass)
     }else if(this.props.hasSuccess){
-      stateProps.className += ' has-success'
+      stateProps.className += (' ' + this.config.successCssClass)
     }else if(this.props.hasFeedback ){
-      stateProps.className += ' has-feedback'
+      stateProps.className += (' ' + this.config.feedbackCssClass)
     }
     let children = null;
     if (type == 'select') {

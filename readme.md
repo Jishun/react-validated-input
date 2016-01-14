@@ -1,5 +1,5 @@
 # react-validated-input
-
+### Working in Progress ###
 Instance based validation component for react, NO FORMS REQUIRED!
 Supports bootstrap, can support all kinds of input in one (built in or extended)
 It uses [validate.js](http://validatejs.org/) to do the validation.
@@ -61,7 +61,17 @@ import validator from 'validate.js'
 
 inputHelper.config({
   validationStateProperty: 'validation', // the property name in the state object to link the validation
-  useWraper: true // uses wrappers for the input, built in wrappers are bootStrap styles
+  useWraper: true, // uses wrappers for the input, built in wrappers are bootStrap styles
+  errorCssClass : 'has-error', // the class applied when has error
+  wraningCssClass : 'has-warning', // the class applied when has error
+  successCssClass : 'has-success', // the class applied when has error
+  feedbackCssClass : 'has-feedback', // the class applied when has error
+  propsPassThrough : true, // default to true, pass every props to the internal components
+  mutate : false, // default to false, not allow instance to be changed by this component, set to true it will put the error indicator into the instance when validation failed,
+  errorIndicatorKey : '_hasError', //the property name of the error indicator put in to the instance when mutate = true
+  errorMessageKey : '_errors', //the property name of the error message collection put in to the instance when mutate = true
+  classNameKey : '_class', // the property name used to find the validation className
+  rulesKey : '_rules' // the property name used to find the validation rules
 })
 
 //to validate an instance of an payment method entry, here we name the class of instance as 'payMethod', the rules for the members are set this way.
@@ -82,7 +92,6 @@ inputHelper.registerClasses({
     expiration: {presence: true}
   }})
 ```
-
 
 ## Extending the types
 Below code shows how to extend an input type 'datepicker' with the existing [react-datepicker](https://github.com/Hacker0x01/react-datepicker) component
@@ -105,7 +114,6 @@ inputHelper.extend('datepicker', {
 })
 ```
 ### Properties
-
 * type (the type of the input, default 'text')
 * validate (the validation prop to manage the valiation)
 * instance (the instance that the value lays in) - required
@@ -151,3 +159,10 @@ inputHelper.extend('datepicker', {
   ## Extending validator
   - Please refer to the document of [validate.js](http://validatejs.org/) for the format of the rules.
   - import the validator instance with "import validator from 'validate.js'" to begin
+
+
+  ## Build
+  ```bash
+  npm install
+  make js
+  ```
