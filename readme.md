@@ -9,8 +9,8 @@
   - This component uses props to control validation,
   - You can put the inputs into a form but you don't have to
   - They are grouped by the state variable which links to their 'validate' prop, don't have to align with the UI layout.
-  - They validation can be triggered by the change of validate prop
-  - They validation scope is set with an array of instance to validate.
+  - The validation can be triggered by the change of validate prop
+  - The validation scope is set with an array of instance to validate.
   - The validation rule can be set in ways:
     * By registering a rule set with a class name as key globally.
     * By giving the rule set within the validate prop.
