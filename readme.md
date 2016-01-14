@@ -160,9 +160,9 @@ inputHelper.extend('datepicker', {
 ## Extending validator
   - Please refer to the document of [validate.js](http://validatejs.org/) for the format of the rules.
   - import the validator instance to begin with
-  js```
+```js
   import validator from 'validate.js'
-  ```
+```
 
 
 ## Build
