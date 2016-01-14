@@ -114,19 +114,21 @@ inputHelper.extend('datepicker', {
 })
 ```
 ### Properties
-* type (the type of the input, default 'text')
-* validate (the validation prop to manage the valiation)
-* instance (the instance that the value lays in) - required
-* propertyKey (the property name of the value member ) - required
-* onChange (standard onChange event)
-* noWrap (this overrides the global config to exclude wrapper elements while rendering)
-* validationClass (the className key which used to find the rules registered globally)
-* hasError, hasWanning, hasSuccess, hasFeedback (bootStrap styled information indicator)
-* defaultValue (default value to use in the instance if no input value)
-* placeholder
-* hide (do not render the component if true)
-* options (the options to use when the type is 'select', it can be array of strings ['options1'] or objects like [{text: 'Opt1', value: 1}])  
-* label (render a label for it with the text provided)
+* type: (the type of the input, default 'text')
+* validate: (the validation prop to manage the valiation)
+* instance: (the instance that the value lays in) - required
+* propertyKey: (the property name of the value member ) - required
+* onChange: (standard onChange event)
+* noWrap: (this overrides the global config to exclude wrapper elements while rendering)
+* validationClass: (the className key which used to find the rules registered globally)
+* hasError, hasWanning, hasSuccess, hasFeedback: (bootStrap styled information indicator)
+* defaultValue: (default value to use in the instance if no input value)
+* placeholder:
+* className: (the react standard className prop, will be applied to the underlying component)
+* wrapperClassName: (css calssName that will be applied to the wrapper component)
+* hide: (do not render the component if true)
+* options: (the options to use when the type is 'select', it can be array of strings ['options1'] or objects like [{text: 'Opt1', value: 1}])  
+* label: (render a label for it with the text provided)
 
 ##API
   - registerClasses(classes)
