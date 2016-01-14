@@ -170,6 +170,6 @@ inputHelper.extend('datepicker', {
   make js
 ```
 ## Contribute?
-  #### Working in Progress ####
+  ----- Working in Progress ----- 
   - Send a pull request to me
   - Or extend an input type with the extend method and publish it!
