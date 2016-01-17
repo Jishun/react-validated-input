@@ -1,6 +1,6 @@
 {
   "name": "react-validated-input",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Jishun Duan <Jishun.Duan@hotmail.com>",
   "description": "Instance based input validation component for react, NO-FORMS REQUIRD!",
   "main": "dist/react-validated-input.js",
@@ -28,6 +28,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^0.14.6"
+    "react": "^0.14.6",
+    "validate.js": "^0.9.0"
   }
 }
