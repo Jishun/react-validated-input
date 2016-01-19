@@ -147,6 +147,7 @@ inputHelper.extend('datepicker', {
     * passing a config object to change the global config
   - extend(inputType, componentConfig)
     * extend the component with adding new types of input.
+    * if the input type exists, this will change the config of the type
 
 ## Managing Rules:
   - It will try to find a set of rules in the following order:

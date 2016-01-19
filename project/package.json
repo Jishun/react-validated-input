@@ -1,6 +1,6 @@
 {
   "name": "react-validated-input",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Jishun Duan <Jishun.Duan@hotmail.com>",
   "description": "Instance based input validation component for react, NO-FORMS REQUIRD!",
   "main": "dist/react-validated-input.js",
