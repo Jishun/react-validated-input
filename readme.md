@@ -63,9 +63,9 @@ inputHelper.config({
   validationStateProperty: 'validation', // the property name in the state object to link the validation
   useWraper: true, // uses wrappers for the input, built in wrappers are bootStrap styles
   errorCssClass : 'has-error', // the class applied when has error
-  wraningCssClass : 'has-warning', // the class applied when has error
-  successCssClass : 'has-success', // the class applied when has error
-  feedbackCssClass : 'has-feedback', // the class applied when has error
+  wraningCssClass : 'has-warning', // the class applied when has warning
+  successCssClass : 'has-success', // the class applied when has success
+  feedbackCssClass : 'has-feedback', // the class applied when has feedback
   propsPassThrough : true, // default to true, pass every props to the internal components
   mutate : false, // default to false, not allow instance to be changed by this component, set to true it will put the error indicator into the instance when validation failed,
   errorIndicatorKey : '_hasError', //the property name of the error indicator put in to the instance when mutate = true
