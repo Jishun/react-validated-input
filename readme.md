@@ -56,7 +56,7 @@ doValidate(){
 
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import * as inputHelper from './components/react-validated-input'
+import * as inputHelper from 'react-validated-input'
 import validator from 'validate.js'
 
 inputHelper.config({
@@ -98,7 +98,7 @@ Below code shows how to extend an input type 'datepicker' with the existing [rea
 ```js
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import * as inputHelper from './components/react-validated-input'
+import * as inputHelper from 'react-validated-input'
 
 inputHelper.extend('datepicker', {
     wrapper: 'div', //the wrapper component to wrap the component, this will wrap this datepicker with bootstrap style, set to null to disable wrapping.
