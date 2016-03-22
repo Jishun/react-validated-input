@@ -148,10 +148,13 @@ export function validate(component, targets, results, validatePropertyKey){
 
 function validateInstance(instance, key, className, value, rules, config){
   if (!rules) {
-    rules = validationClasses[className];
+    var classRule = validationClasses[className];
+    if (classRule) {
+      rules = classRule[key]
+    }
   }
   if (rules) {
-    rules = {[key]: rules[key]}
+    rules = {[key]: rules}
     let ret = validatejs(instance, rules);
     if (ret) {
       let result = {[config.errorIndicatorKey]: true, [config.errorMessageKey] : ret};
@@ -293,7 +296,9 @@ export default class ValidatedInput extends Component {
       props.label = label;
       toRender = children ? <Comp {...props}>{children}</Comp> : <Comp {...props}/>
     }else {
-      toRender =  <label>{this.compConfig.labelAfter ? '' : label}{children ? <Comp {...props}>{children}</Comp> : <Comp {...props}/>}{this.compConfig.labelAfter ? label : ''}</label>
+      toRender = this.compConfig.labelAfter
+        ? <span>{children ? <Comp {...props}>{children}</Comp> : <Comp {...props}/>}<span>{label}</span></span>
+        : <span><span>{label}</span>{children ? <Comp {...props}>{children}</Comp> : <Comp {...props}/>}</span>
     }
     if (useWraper) {
       stateProps.className = (stateProps.className || '') +  ' ' + (this.compConfig.wrapperClass || '') + ' ' + (this.props.wrapperClassName || '')
