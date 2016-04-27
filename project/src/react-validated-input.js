@@ -128,13 +128,20 @@ export function extend(inputType, componentConfig){
 
 export function validate(component, targets, results, validatePropertyKey){
   validatePropertyKey = validatePropertyKey || configObj.validationStateProperty;
+  if (typeof(validatePropertyKey) == 'string') {
+    validatePropertyKey = [validatePropertyKey];
+  }
   let ret = new Promise((resolve, reject) => {
     let state = {};
-    state[validatePropertyKey] = {targets: targets, errorMessage: null};
-    let holder = state[validatePropertyKey];
-    if (!results) {
-      results = holder.results = {};
-    }
+    let targetHolder = {targets: targets, errorMessage: null};
+    validatePropertyKey.forEach(v => {
+      state[v] = targetHolder
+      let holder = state[v];
+      if (!results) {
+        results = holder.results = {};
+      }
+    })
+    
     component.setState(state, () =>{
       if (Object.keys(results).length > 0) {
         reject(results);

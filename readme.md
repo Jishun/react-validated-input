@@ -39,7 +39,11 @@ render(){
 }
 //to validate, triggered by some button click, or certain onChange events
 doValidate(){
-  inputHelper.validate(this, [this.state.user])
+  //if there is only one validation group, pass the defaults like this inputHelper.validate(this, [this.state.user])
+  //otherwise pass the validation group name(which is the property name in t he state other than 'validation'):  inputHelper.validate(this, [this.state.user], null, 'validateContent')
+  //The null above is an optional result collection, pass an empty object if you don't want your state instance to be changed
+  //Support multiple group validations, pass the 4th param as an array of strings instead of a single string will do the job: as below
+  inputHelper.validate(this, [this.state.user], null, ['validation', 'validateContent'])
     .then(
         () => {
           //do something when no errors
