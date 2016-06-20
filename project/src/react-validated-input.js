@@ -4,7 +4,7 @@
  * (c) 2013-2015 Jishun Duan, 2013 Wrapp
  * Validate.js may be freely distributed under the MIT license.
  * For all details and documentation:
- * https://github.com/djsxp/react-validated-input
+ * https://github.com/Jishun/react-validated-input
  */
 
 "use strict";
