@@ -9,4 +9,4 @@ $(DIST_JS): dist/%.js: src/%.js
 	mkdir -p $(dir $@)
 	cp package.json $(dir $@)
 	cp ../readme.md $(dir $@)
-	$(BIN)/babel $< -o $@
+	"$(BIN)/babel" $< -o $@

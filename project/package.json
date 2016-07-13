@@ -1,9 +1,9 @@
 {
   "name": "react-validated-input",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Jishun Duan <Jishun.Duan@hotmail.com>",
   "description": "Instance based input validation component for react, NO-FORMS REQUIRD!",
-  "main": "dist/react-validated-input.js",
+  "main": "dist/index.js",
   "homepage": "https://github.com/jishun/react-validated-input.git",
   "repository": {
     "type": "git",

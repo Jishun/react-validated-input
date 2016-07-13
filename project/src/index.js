@@ -1,8 +1,8 @@
 /*!
- * react-validated-input.js 0.1.0
+ * react-validated-input.js 0.0.0
  *
  * (c) 2013-2015 Jishun Duan, 2013 Wrapp
- * Validate.js may be freely distributed under the MIT license.
+ * react-validated-input.js may be freely distributed under the MIT license.
  * For all details and documentation:
  * https://github.com/Jishun/react-validated-input
  */
@@ -141,7 +141,7 @@ export function validate(component, targets, results, validatePropertyKey){
         results = holder.results = {};
       }
     })
-    
+
     component.setState(state, () =>{
       if (Object.keys(results).length > 0) {
         reject(results);
