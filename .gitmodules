@@ -1,0 +1,4 @@
+[submodule "gh-pages"]
+	path = gh-pages
+	url = git@github.com:Jishun/react-validated-input.git
+	branch = gh-pages

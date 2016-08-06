@@ -11,7 +11,8 @@
   },
   "scripts": {
     "build": "make js",
-    "test": "webpack-dev-server --progress --color --display-error-details"
+    "test": "webpack-dev-server --progress --color --display-error-details",
+    "demo": "webpack ./test/entry.js bundle.js"
   },
   "keywords": [
     "validation",
