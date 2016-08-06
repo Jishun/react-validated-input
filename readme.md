@@ -1,5 +1,6 @@
 # react-validated-input
 
+- Live Demo at [http://jishun.github.io/react-validated-input/](http://jishun.github.io/react-validated-input/)
 - Instance based validation component for react, NO FORMS REQUIRED!
 - Supports bootstrap, can support all kinds of input in one (built in or extended)
 - It uses [validate.js](http://validatejs.org/) to do the validation.
