@@ -46,6 +46,7 @@ const typeToComponents = {
     component: 'input',
     valueProp: 'value',
     defaultProps: { type: 'text'},
+    defaultValue: ''
   },
   'password': {
     wrapper: 'div',
@@ -53,7 +54,8 @@ const typeToComponents = {
     className: 'form-control',
     component: 'input',
     valueProp: 'value',
-    defaultProps: { type: 'password'}
+    defaultProps: { type: 'password'},
+    defaultValue: ''
   },
   'email': {
     wrapper: 'div',
@@ -61,7 +63,8 @@ const typeToComponents = {
     className: 'form-control',
     component: 'input',
     valueProp: 'value',
-    defaultProps: { type: 'email'}
+    defaultProps: { type: 'email'},
+    defaultValue: ''
   },
   'textarea': {
     wrapper: 'div',
@@ -69,7 +72,8 @@ const typeToComponents = {
     className: 'form-control',
     component: 'textarea',
     valueProp: 'value',
-    defaultProps: {}
+    defaultProps: {},
+    defaultValue: ''
   },
   'select': {
     wrapper: 'div',
@@ -77,7 +81,8 @@ const typeToComponents = {
     className: 'form-control',
     component: 'select',
     valueProp: 'value',
-    defaultProps: {}
+    defaultProps: {},
+    defaultValue: ''
   },
   'checkbox': {
     wrapper: 'div',
@@ -86,7 +91,8 @@ const typeToComponents = {
     valueProp: 'checked',
     getValueOnChange: (e) => e.target.checked,
     labelAfter: true,
-    defaultProps: { type: 'checkbox'}
+    defaultProps: { type: 'checkbox'},
+    defaultValue: ''
     },
   'radio': {
     wrapper: 'div',
@@ -95,13 +101,15 @@ const typeToComponents = {
     valueProp: 'value',
     canuseWrapper: true,
     defaultProps: { type: 'radio'},
-    labelAfter: true
+    labelAfter: true,
+    defaultValue: ''
     },
   'file': {
     component: 'input',
     className: 'form-control',
     valueProp: null,
-    defaultProps: { type: 'file'}
+    defaultProps: { type: 'file'},
+    defaultValue: ''
     }
 }
 const validationClasses = {};
@@ -206,7 +214,10 @@ export default class ValidatedInput extends Component {
   validate(newProps, value){
     let className = this.props.validationClass || newProps.instance[this.config.classNameKey]
     let rules = this.props.rules || newProps.instance[this.config.rulesKey]
-        //|| (this.props.required ? {[newProps.propertyKey]: {presence: true} }: null) //number, digits
+    if(this.props.required)
+    {
+      rules.presence = true
+    }
     return validateInstance(newProps.instance, newProps.propertyKey, className, value, rules, this.config);
   }
 
@@ -239,7 +250,7 @@ export default class ValidatedInput extends Component {
   getValue(){
     this.compConfig = this.compConfig || typeToComponents[this.props.type];
     if (!this.compConfig) {
-        throw 'unexpected input type ' + this.props.type;
+        throw 'must specify the type of the input, example: type="text" '
     }
     return this.props.instance[this.props.propertyKey] || this.props.defaltValue;
   }
@@ -255,7 +266,7 @@ export default class ValidatedInput extends Component {
 
     let props = Object.assign({onChange: this.handleChange.bind(this, instance, propertyKey, onChange)}, this.compConfig.defaultProps);
 
-    props[this.compConfig.valueProp] = value;
+    props[this.compConfig.valueProp] = value || this.compConfig.defaultValue;
     if (this.config.propsPassThrough) {
       Object.keys(this.props).forEach(k => {
         if (!reservedKeys.some(r => r === k)) {
@@ -287,9 +298,15 @@ export default class ValidatedInput extends Component {
     return this.props.type || 'text';
   }
 
+  cleanUpProps(props){
+
+
+  }
 
   finalRender(props, stateProps, label, children){
     let useWraper = this.config.useWrapper && this.compConfig.wrapper && !this.props.noWrap;
+    delete props.validate
+    delete props.rules
     if (!useWraper) {
       Object.assign(props, stateProps);
     }
