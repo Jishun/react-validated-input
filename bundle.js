@@ -46,7 +46,7 @@
 
 	__webpack_require__(1);
 	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"bunlde.js\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"bundle.js\""); }());
 
 
 /***/ },
@@ -307,7 +307,7 @@
 	          _react2.default.createElement(
 	            'a',
 	            { target: '_blank', href: 'https://github.com/Jishun/react-validated-input/blob/master/project/test/entry.js' },
-	            '>View Source code'
+	            'View Source code'
 	          ),
 	          '):'
 	        ),
