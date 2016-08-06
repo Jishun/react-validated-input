@@ -149,7 +149,7 @@ class InputTest extends React.Component {
   render(){
     return <div>
       <h2><a target="_blank" href="https://github.com/Jishun/react-validated-input">react-validated-input</a></h2>
-      <h3>Examples (<a target="_blank" href="https://github.com/Jishun/react-validated-input/blob/master/project/test/entry.js">>View Source code</a>):</h3>
+      <h3>Examples (<a target="_blank" href="https://github.com/Jishun/react-validated-input/blob/master/project/test/entry.js">View Source code</a>):</h3>
       <BasicInputTest/>
     </div>
   }
