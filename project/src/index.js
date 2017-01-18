@@ -253,7 +253,7 @@ export default class ValidatedInput extends Component {
         throw 'must specify the type of the input, example: type="text" '
     }
     var ret = this.props.instance[this.props.propertyKey];
-    if (ret == undefined || isNaN(ret)) {
+    if (ret == undefined || ret == null) {
       return this.props.defaultValue;
     }
     return ret;
