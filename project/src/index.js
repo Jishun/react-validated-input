@@ -225,7 +225,7 @@ export default class ValidatedInput extends Component {
     if (typeof(o) == 'string') {
       return <option key={i} value={o}>{o}</option>;
     }
-    return (<option key={i} value={o.value}>{o.text || o.value}</option>);
+    return (<option key={i} value={o.value} className={o.highlight ? 'bg-warning' : ''}>{o.text || o.value}</option>);
   }
 
   handleChange(instance, propertyKey, callback, e) {
