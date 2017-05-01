@@ -132,7 +132,7 @@ inputHelper.extend('datepicker', {
 * className: (the react standard className prop, will be applied to the underlying component)
 * wrapperClassName: (css calssName that will be applied to the wrapper component)
 * hide: (do not render the component if true)
-* options: (the options to use when the type is 'select', it can be array of strings ['options1'] or objects like [{text: 'Opt1', value: 1}])  
+* options: (the options to use when the type is 'select', it can be array of strings ['options1'] or objects like [{text: 'Option1', value: 1, className: '', style: ''}])  
 * label: (render a label for it with the text provided)
 
 ##API

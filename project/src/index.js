@@ -225,7 +225,7 @@ export default class ValidatedInput extends Component {
     if (typeof(o) == 'string') {
       return <option key={i} value={o}>{o}</option>;
     }
-    return (<option key={i} value={o.value} className={o.highlight ? 'bg-warning' : ''}>{o.text || o.value}</option>);
+    return (<option key={i} value={o.value} className={o.className || ''} style={o.style || ''}>{o.text || o.value}</option>);
   }
 
   handleChange(instance, propertyKey, callback, e) {
@@ -271,7 +271,7 @@ export default class ValidatedInput extends Component {
     let props = Object.assign({onChange: this.handleChange.bind(this, instance, propertyKey, onChange)}, this.compConfig.defaultProps);
 
     props[this.compConfig.valueProp] = value == null? this.compConfig.defaultValue: value;
-    
+
     if (this.config.propsPassThrough) {
       Object.keys(this.props).forEach(k => {
         if (!reservedKeys.some(r => r === k)) {
