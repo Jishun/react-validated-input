@@ -225,7 +225,7 @@ export default class ValidatedInput extends Component {
     if (typeof(o) == 'string') {
       return <option key={i} value={o}>{o}</option>;
     }
-    return (<option key={i} value={o.value} className={o.className || ''} style={o.style || ''}>{o.text || o.value}</option>);
+    return (<option key={i} value={o.value} className={o.className || ''} style={o.style || {}}>{o.text || o.value}</option>);
   }
 
   handleChange(instance, propertyKey, callback, e) {
