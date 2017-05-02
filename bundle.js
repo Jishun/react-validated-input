@@ -45,8 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"bundle.js\""); }());
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
@@ -22015,7 +22014,7 @@
 	      }
 	      return _react2.default.createElement(
 	        'option',
-	        { key: i, value: o.value },
+	        { key: i, value: o.value, className: o.className || '', style: o.style || {} },
 	        o.text || o.value
 	      );
 	    }
@@ -22047,7 +22046,11 @@
 	      if (!this.compConfig) {
 	        throw 'must specify the type of the input, example: type="text" ';
 	      }
-	      return this.props.instance[this.props.propertyKey] || this.props.defaltValue;
+	      var ret = this.props.instance[this.props.propertyKey];
+	      if (ret == undefined || ret == null) {
+	        return this.props.defaultValue;
+	      }
+	      return ret;
 	    }
 	  }, {
 	    key: 'render',
@@ -22070,7 +22073,8 @@
 
 	      var props = Object.assign({ onChange: this.handleChange.bind(this, instance, propertyKey, onChange) }, this.compConfig.defaultProps);
 
-	      props[this.compConfig.valueProp] = value || this.compConfig.defaultValue;
+	      props[this.compConfig.valueProp] = value == null ? this.compConfig.defaultValue : value;
+
 	      if (this.config.propsPassThrough) {
 	        Object.keys(this.props).forEach(function (k) {
 	          if (!reservedKeys.some(function (r) {
